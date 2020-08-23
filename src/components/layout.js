@@ -7,25 +7,53 @@ const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
 
-  const renderHeader = () => {
-    return (
-      <h1 className='my-0' style={{
-        ...scale(0.75),
-      }}>
-        <Link
-          className='text-textTitle'
-          style={{
-            boxShadow: 'none',
-            textDecoration: 'none',
-          }}
-          to={'/'}
+  const HomeHeader = (
+    <h1 className='my-0' style={{
+      ...scale(0.75),
+    }}>
+      <Link
+        className='text-textTitle'
+        style={{
+          boxShadow: 'none',
+          textDecoration: 'none',
+        }}
+        to={'/'}
       >
-          {title}
-        </Link>
-      </h1>
+        {title}
+      </Link>
+    </h1>
+  );
 
-    )
+  const PostPageHeader = (
+    <h3
+      style={{
+        fontFamily: 'Montserrat, sans-serif',
+        marginTop: 0,
+        marginBottom: 0,
+        height: 42, // because
+        lineHeight: '2.625rem',
+      }}
+    >
+      <Link
+        style={{
+          boxShadow: 'none',
+          textDecoration: 'none',
+          color: 'rgb(255, 167, 196)',
+        }}
+        to={'/'}
+      >
+        {title}
+      </Link>
+    </h3>
 
+  );
+
+  const renderHeader = () => {
+    if (location.pathname === rootPath) {
+      return HomeHeader;
+    } else {
+      return PostPageHeader;
+    }
   }
 
   return (

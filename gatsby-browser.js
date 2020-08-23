@@ -2,8 +2,7 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 
-import "prismjs/themes/prism.css"
-// import "./src/css/index.css"
+import "prism-theme-night-owl";
 
 // Inject CSS reset before typography plugin in development
 export const onClientEntry = () => {
