@@ -6,10 +6,56 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import { createLanguageLink } from "../i18s"
+
+
+function Panel({ children, style = {} }) {
+  return (
+    <p
+      style={{
+        fontSize: '0.9em',
+        border: '1px solid hsla(0, 0%, 100%, 0.2)',
+        borderRadius: '0.75em',
+        padding: '0.75em',
+        background: 'rgba(115, 124, 153, 0.2)',
+        wordBreak: 'keep-all',
+        ...style,
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const { previous, next, translations } = pageContext
+  const lang = post.fields.langKey
+  const slug = post.fields.slug
+
+  const languageLink = createLanguageLink(slug, lang);
+
+  const hasChineseVersion = translations.find((lang) => lang === 'zh-hans')
+
+  const renderTranslationPanel = (lang) => {
+    return (
+
+      <div>
+        <Panel>
+          <span>This article is also available in: </span>
+          {
+            lang === 'en' ? (
+              <Link to={languageLink('zh-hans')}>简体中文</Link>
+            ) : (
+                <Link to={languageLink('en')}>English</Link>
+              )
+          }
+        </Panel>
+      </div>
+    )
+
+  }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -36,6 +82,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.date}
           </p>
+
+          {hasChineseVersion && renderTranslationPanel(lang)}
+
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -95,6 +144,10 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+      }
+      fields {
+        slug
+        langKey
       }
     }
   }

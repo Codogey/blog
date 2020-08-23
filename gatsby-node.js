@@ -16,6 +16,8 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                langKey
+                directoryName
               }
               frontmatter {
                 title
@@ -34,9 +36,24 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
 
+  translationsByDirectory = new Map()
+
+  posts.forEach((post, index) => {
+    const { langKey, directoryName } = post.node.fields
+    if (!translationsByDirectory.has(directoryName)) {
+      translationsByDirectory.set(directoryName, [])
+    }
+    translationsByDirectory.get(directoryName).push(langKey)
+  });
+
+
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
+
+    const { directoryName } = post.node.fields
+
+    const translations = translationsByDirectory.get(directoryName)
 
     createPage({
       path: post.node.fields.slug,
@@ -45,6 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: post.node.fields.slug,
         previous,
         next,
+        translations,
       },
     })
   })
@@ -54,11 +72,10 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
     createNodeField({
-      name: `slug`,
       node,
-      value,
-    })
+      name: 'directoryName',
+      value: path.basename(path.dirname(node.fileAbsolutePath)),
+    });
   }
 }
