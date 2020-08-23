@@ -3,7 +3,7 @@ module.exports = {
     title: `Undefined`,
     author: {
       name: `Xuanqi Li`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      summary: ``,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
@@ -91,7 +91,14 @@ module.exports = {
         langKeyDefault: 'en',
         useLangKeyLayout: false,
       }
-    }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-176054544-1",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
