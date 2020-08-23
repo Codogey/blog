@@ -22,3 +22,7 @@
     -webkit-overflow-scrolling: touch;
     overflow: auto;
 }
+
+body {
+    @apply bg-background
+}
