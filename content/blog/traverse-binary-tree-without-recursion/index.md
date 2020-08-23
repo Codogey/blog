@@ -23,8 +23,6 @@ Some tips:
 1. we only print value when the node is polled out from stack.
 2. after print value, we will offer his right and left back to stack, then order should be `right - left`.
 
-
-
 ```java
 /**
  * Definition for a binary tree node.

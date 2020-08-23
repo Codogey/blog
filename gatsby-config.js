@@ -46,6 +46,10 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
+              prompt: {
+                user: "lixuanqi",
+                host: "localhost",
+              },
             }
           },
             `gatsby-remark-copy-linked-files`,

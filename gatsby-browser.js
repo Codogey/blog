@@ -4,6 +4,7 @@ import "typeface-merriweather"
 
 import "prism-theme-night-owl";
 
+require("prismjs/plugins/command-line/prism-command-line.css")
 // Inject CSS reset before typography plugin in development
 export const onClientEntry = () => {
     if (process.env.BUILD_STAGE === 'develop') {
