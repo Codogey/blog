@@ -1,10 +1,10 @@
 ---
-title: 遍历二叉树 
+title: 非递归的遍历二叉树
 date: "2018-11-21T22:12:03.284Z"
 description: "Hello World"
 ---
 
-## Questions
+## 问题
 
 [LeetCode144 - Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/description/)
 
@@ -14,14 +14,11 @@ description: "Hello World"
 
 
 
-## Preorder Traversal
+## 前序遍历（Preorder Traversal）
 
-we should visit the node as the order like `root - left - right`, which means every time we meet a node, we can firstly print his value(or do other operations with its value). and then we should visit his left and right. We can use a `Stack` to help us. In order to visit left firstly, we should offer the `right` into `Stack` firstly, and then `left`. 
+前序遍历: 中-左-右
 
-Some tips:
-
-1. we only print value when the node is polled out from stack.
-2. after print value, we will offer his right and left back to stack, then order should be `right - left`.
+这意味着每当我们遇到一个结点，就可以打印它。然后因为我们想要先访问其左子树的所有 节点，然后访问右子树的所有节点。所以我们可以借助栈（stack）的帮忙。先将右子树放 入栈中，再放入左子树。(先进后出)
 
 ```java
 /**
@@ -58,15 +55,21 @@ class Solution {
 
 
 
-## Inorder Traversal
+## 中序遍历（Inorder Traversal）
 
-Inorder traversal means we should visit the node as the mode `left - root - right`, which means for every node, if it has left node, we can't visit his value until all of his left nodes have been visited. So we use a `TreeNode helper` to help us. 
+中序遍历： 左-中-右
 
-Some tips:
+这意味着对于每一个节点，如果有左子树存在，就不能打印，直到所有左子树均已被打印为 止。我们可以用`helper node`来帮助我们完成这件事。
 
-1. if helper has left, we always go left and offer the node into stack.
-2. only when helper is null, we can poll element from stack. this time, we can visit the value of the node.
-3. after visit the value of node, we should check its right node, if there is right node, we should make `helper == curr.right` and do the process again. 
+步骤：
+
+1. 有左子树，将左子树放到栈中。
+2. 没有左子树，从栈中拿出一个node打印。
+3. 检查被拿出的node的右子树，如果存在，则把helper移到右子树。
+
+重复上述过程，直到所有节点均被打印。
+
+# Python version
 
 ```java
 class Solution {
@@ -92,15 +95,17 @@ class Solution {
 }
 ```
 
-## Postorder Traversal
+## 后序遍历（Postorder Traversal）
 
-Firstly, let's think when can we print the value?
+后序遍历： 左-右-中
 
-1. left == null && right == null
-2. come back from left && right == null
-3. come back from right
+我们首先来思考什么时候可以打印node的值？
 
-So the key to solve the problem is knowing the directon of our traversal. We can use a `prev` to help us.
+1. 叶子节点，没有左右子树的时候（left == null && right == null）
+2. 只有左子树，且左子树均已被遍历过
+3. 左右子树同时存在，但都已被遍历过
+
+从上述规则中，我们可以看出遍历的方向非常重要，因此我们用一个`prev`指针来帮助我 们。
 
 ```java
 /**
@@ -153,7 +158,7 @@ class Solution {
 
 
 
-## Similar Questions
+## 相关问题
 
 [Leetcode230 - Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/)
 
