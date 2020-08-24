@@ -58,7 +58,10 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { fields: { langKey: { eq: $langKey } } }
+      filter: { 
+        frontmatter: {visible: {ne: false}}
+        fields: { langKey: { eq: $langKey } } 
+      }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
