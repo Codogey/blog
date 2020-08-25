@@ -8,6 +8,8 @@ import { rhythm, scale } from "../utils/typography"
 
 import { createLanguageLink } from "../i18s"
 
+import "katex/dist/katex.min.css"
+
 function Comment({ commentBox }) {
   return <div ref={commentBox} className="comments" />
 }
@@ -45,6 +47,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     scriptEl.async = true
     scriptEl.src = 'https://utteranc.es/client.js'
     scriptEl.setAttribute('repo', 'LiXuanqi/blog')
+    // Use directoryName as post identifier, so different language version will use same github issue as comment source.
     scriptEl.setAttribute('issue-term', directoryName)
     scriptEl.setAttribute('label', 'blog-comment')
     scriptEl.setAttribute('id', 'utterances')
