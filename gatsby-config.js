@@ -43,6 +43,9 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          // place before other plugins that modify code blocks (such as prismjs)
+          // 'gatsby-remark-prismjs',
+          'gatsby-remark-graphviz',
           {
             resolve: `gatsby-remark-prismjs`,
             options: {

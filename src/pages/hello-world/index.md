@@ -147,3 +147,12 @@ $a^2 + b^2 = c^2$
 $$
 a^2 + b^2 = c^2
 $$
+
+## graphviz
+```dot id="my-id" class="my-class"
+digraph graphname {
+  a -> b;
+  b -> c;
+  a -> c;
+}
+```
