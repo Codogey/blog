@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -7,6 +7,10 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 import { createLanguageLink } from "../i18s"
+
+function Comment({ commentBox }) {
+  return <div ref={commentBox} className="comments" />
+}
 
 
 function Panel({ children, style = {} }) {
@@ -31,21 +35,40 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next, translations } = pageContext
-  const lang = post.fields.langKey
-  const slug = post.fields.slug
+  const {langKey, slug, directoryName } = post.fields
 
-  const languageLink = createLanguageLink(slug, lang);
+  // Comment Box
+  const commentBox = React.createRef()
 
-  const hasChineseVersion = translations.find((lang) => lang === 'zh-hans')
+  useEffect(() => {
+    const scriptEl = document.createElement('script')
+    scriptEl.async = true
+    scriptEl.src = 'https://utteranc.es/client.js'
+    scriptEl.setAttribute('repo', 'LiXuanqi/blog')
+    scriptEl.setAttribute('issue-term', directoryName)
+    scriptEl.setAttribute('label', 'blog-comment')
+    scriptEl.setAttribute('id', 'utterances')
+    scriptEl.setAttribute('theme', 'github-dark')
+    scriptEl.setAttribute('crossorigin', 'anonymous')
+    if (commentBox && commentBox.current) {
+      commentBox.current.appendChild(scriptEl)
+    } else {
+      console.log(`Error adding utterances comments on: ${commentBox}`)
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const renderTranslationPanel = (lang) => {
+  const languageLink = createLanguageLink(slug, langKey);
+
+  const hasChineseVersion = translations.find((langKey) => langKey === 'zh-hans')
+
+  const renderTranslationPanel = (langKey) => {
     return (
 
       <div>
         <Panel>
           <span>This article is also available in: </span>
           {
-            lang === 'en' ? (
+            langKey === 'en' ? (
               <Link to={languageLink('zh-hans')}>简体中文</Link>
             ) : (
                 <Link to={languageLink('en')}>English</Link>
@@ -83,7 +106,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             {post.frontmatter.date}
           </p>
 
-          {hasChineseVersion && renderTranslationPanel(lang)}
+          {hasChineseVersion && renderTranslationPanel(langKey)}
 
         </header>
         <section dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -95,6 +118,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <footer>
           <Bio />
         </footer>
+        {/* COMMENT BOX */}
+        <section id="comments">
+          <h2>Comments</h2>
+          <Comment commentBox={commentBox} />
+        </section>
       </article>
 
       <nav>
@@ -148,6 +176,7 @@ export const pageQuery = graphql`
       fields {
         slug
         langKey
+        directoryName
       }
     }
   }
