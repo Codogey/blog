@@ -2,6 +2,7 @@
 title: Bit manipulation 
 date: "2019-01-17T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Basic Operations

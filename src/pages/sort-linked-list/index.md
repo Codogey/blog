@@ -2,6 +2,7 @@
 title: Sort linked list 
 date: "2018-11-30T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 [Leetcode 148. Sort List](https://leetcode.com/problems/sort-list/)

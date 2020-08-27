@@ -2,6 +2,7 @@
 title: N sum 
 date: "2018-12-06T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Two sum

@@ -2,6 +2,7 @@
 title: Traverse binary tree without recursion 
 date: "2018-11-21T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Questions

@@ -2,6 +2,7 @@
 title: Best time to buy stock 
 date: "2019-01-19T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Best Time to Buy and Sell Stock

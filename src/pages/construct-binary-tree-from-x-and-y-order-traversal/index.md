@@ -2,6 +2,7 @@
 title: Construct binary tree from x and y order traversal
 date: "2018-11-28T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm', 'Tree']
 ---
 
 ## Introduce

@@ -69,8 +69,6 @@ class Solution {
 
 重复上述过程，直到所有节点均被打印。
 
-# Python version
-
 ```java
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {

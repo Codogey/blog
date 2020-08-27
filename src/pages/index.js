@@ -10,6 +10,26 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
+  
+
+
+  const getAvaiableTags = () => {
+    let tags = new Set()
+    for (let post of posts) {
+      if (post.node.frontmatter.tags) {
+        for (let tag of post.node.frontmatter.tags) {
+          tags.add(tag)
+        }
+    
+      }
+    }
+    return [...tags]
+  }
+
+  const allTags = getAvaiableTags()
+
+  console.log(allTags)
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
@@ -17,11 +37,20 @@ const BlogIndex = ({ data, location }) => {
         <Bio />
       </aside>
       <main>
+        {/* <div>
+          {allTags.map((tag) => {
+            return (
+            <span key={tag} className='mr-2 p-1 border border-solid rounded-full text-xs'>{tag}</span>
+            )
+          })}
+        </div> */}
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
+          const tags = node.frontmatter.tags || []
           return (
             <article key={node.fields.slug}>
               <header>
+                
                 <h3
                   style={{
                     fontFamily: 'Montserrat, sans-serif',
@@ -34,12 +63,20 @@ const BlogIndex = ({ data, location }) => {
                   </Link>
                 </h3>
                 <small>{node.frontmatter.date}</small>
+                <div className='flex items-center mt-2'>
+                  {tags.map((tag) => {
+                    return (
+                    <span key={tag} className='mr-2 p-1 border border-solid rounded-full text-xs'>{tag}</span>
+                    )
+                  })}
+                </div>
               </header>
-                <p
+
+                {/* <p
                   dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
                   }}
-                />
+                /> */}
             </article>
           )
         })}
@@ -74,6 +111,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            tags
           }
         }
       }

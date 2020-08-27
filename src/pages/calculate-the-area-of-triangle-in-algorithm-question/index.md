@@ -1,7 +1,8 @@
 ---
 title: Calculate the area of triangle in algorithm question
 date: "2019-07-16T22:12:03.284Z"
-description: "Hello World"
+description: "Introduce how to 👨🏻‍💻 calculate the area of triangle in cartesian coordinate system."
+tags: ['Algorithm', 'Math']
 ---
 
 In algorithm questions, knowing how to calculate the area of the triangle makes problems easy.

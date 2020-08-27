@@ -2,6 +2,7 @@
 title: Search in 2d array 
 date: "2019-01-16T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Introduction

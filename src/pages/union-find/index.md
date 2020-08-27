@@ -2,6 +2,7 @@
 title: Union find 
 date: "2019-01-07T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ```java
