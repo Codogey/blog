@@ -7,27 +7,37 @@ tags: ['Algorithm', 'Tree']
 
 ## Introduce
 There are many related questions ask to construct the binary tree in Leetcode. This article is a summary of these questions.
+
 [LeetCode 105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
 [Leetcode 106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
+
 [Leetcode 889. Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
-## Construct Binary Tree from two Traversals
+
+## Idea 
 We should know it's impossible to construct a binary tree with only one traversal, and the key to solving this kind of questions is how to distinguish the elements of left subtree and right subtree.
-#### Construct Binary Tree from Preorder and Inorder Traversal
+
+## Preorder + Inorder
 [LeetCode 105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 ```
 preorder = [3,9,20,15,7]
 inorder = [9,3,15,20,7]
-
-    3
-   / \
-  9  20
-    /  \
-   15   7
 ```
+
+```dot
+digraph graphname {
+  3 -> 9;
+  3 -> 20;
+  20 -> 15;
+  20 -> 7;
+}
+```
+
 Features:
 1. The first element in preorder (3) must be root of the tree. 
 2. All elements on the left hand of (3) in inorder belongs to left subtree.
 3. All elements on th right hand of (3) in inorder belongs to right subtree.
+
 ```java
 class Solution {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -51,18 +61,22 @@ class Solution {
     }
 }
 ```
-#### Construct Binary Tree from Preorder and Inorder Traversal
+## Inorder + Postorder
 [Leetcode 106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 ```
 inorder = [9,3,15,20,7]
 postorder = [9,15,7,20,3]
-
-    3
-   / \
-  9  20
-    /  \
-   15   7
 ```
+
+```dot
+digraph graphname {
+  3 -> 9;
+  3 -> 20;
+  20 -> 15;
+  20 -> 7;
+}
+```
+
 The only difference is that we find the root of the tree from the tail of the postorder traversal.
 ```java
 class Solution {
@@ -93,7 +107,8 @@ class Solution {
     }
 }
 ```
-#### Construct Binary Tree from Preorder and Inorder Traversal
+
+## Preorder + Postorder
 [Leetcode 889. Construct Binary Tree from Preorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal/)
 ```
 Input: pre = [1,2,4,5,3,6,7], post = [4,5,2,6,7,3,1]

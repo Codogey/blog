@@ -2,6 +2,7 @@
 title: 4 basic sort algorithms 
 date: "2018-11-25T22:12:03.284Z"
 description: "Hello World"
+tags: ['Algorithm']
 ---
 
 ## Overview

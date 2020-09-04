@@ -6,8 +6,11 @@ tags: ['Algorithm']
 ---
 
 ## Best Time to Buy and Sell Stock
+
 [Leetcode 121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
 When we meet a lower price, we try to buy it, and update the lowest price of buying.
+
 When we meet a higher price, we try to sell it, and update the max profit.
 ```java
 class Solution {
@@ -28,7 +31,9 @@ class Solution {
 ```
 ## Best Time to Buy and Sell Stock II
 [Leetcode 122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/)
+
 Because we know the prices at the beginning, which means we have the ability to predict the future. So in every round, we try to see the next day's price. we only do the transaction (buy this day, sell next day) when we can make the positive profit. Otherwise, we do nothing.
+
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -42,8 +47,10 @@ class Solution {
     }
 }
 ```
+
 ## Best Time to Buy and Sell Stock III
 [Leetcode 123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+
 The difficulty is how to define the `dp[][]`
 There are 5 status:
 ```
@@ -53,6 +60,7 @@ NOTICE:
 1. 'Integer.MIN_VALUE' represents impossible.(can't use 0, it creats bug when second buy)
 2. `long[][] dp` to avoid that `Integer.MIN_VALUE - prices[i]` makes overflow.
 3. when we find the final result, we only check status which are after selling such as 3 and 5.
+   
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -88,10 +96,13 @@ class Solution {
     }
 }
 ```
+
 ## Best Time to Buy and Sell Stock IV
 [Leetcode 188. Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+
 1. when `k * 2 >= prices.length`, we can do transactions as many as we want, it's similar to `Best Time to Buy and Sell Stock II`. We need to check this case, because when k is too much, it will cost too much memory for `dp[][]`.
 2. Otherwise, it's similar to `Best Time to Buy and Sell Stock III`.
+   
 ```java
 class Solution {
     public int maxProfit(int k, int[] prices) {
@@ -131,12 +142,15 @@ class Solution {
     }
 }
 ```
+
 ## Best Time to Buy and Sell Stock with Cooldown
 [Leetcode 309. Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
+
 There is a cooldown after selling. And we need hold the stock then we can sell. So we care about the status such as `hold/unhold`, `sell`. There are some combinations.
 1. hold
 2. not hold, sell at this time.
 3. not hold, not sell at this time.
+   
 ```java
 class Solution {
     public int maxProfit(int[] prices) {
@@ -163,13 +177,16 @@ class Solution {
     }
 }
 ```
+
 ## Best Time to Buy and Sell Stock with Transaction Fee
 [Leetcode 714. Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+
 Because there is the transaction fee so we can't do like `Best Time to Buy and Sell Stock II`. There are two status:
 1. hold
 2. unhold
 
 It's easy to solve.
+
 ```java
 class Solution {
     public int maxProfit(int[] prices, int fee) {
