@@ -3,6 +3,13 @@ import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
 
 const PostList = ({posts}) => {
+    const formatDate = (date) => {
+        let oDate = new Date(date);
+        return oDate.toLocaleString('en-US', {
+            month: "short",
+            day: "numeric"
+        })
+    }
     return (
         <Fragment>
             {posts.map(({ node }) => {
@@ -12,8 +19,7 @@ const PostList = ({posts}) => {
                     <article key={node.fields.slug}>
                         <Link to={node.fields.slug}>
                             <div className="hover:bg-backgroundHover text-postTitle px-4 py-3 rounded-lg">
-                                {/* TODO: only show Month and day */}
-                                <time className="pr-12 text-time font-normal text-small">{node.frontmatter.date}</time>
+                                <time className="pr-12 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
                                 <span className="text-xl font-bold">
                                     { title }
                                 </span>
