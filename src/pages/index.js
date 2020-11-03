@@ -41,7 +41,10 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
         </div> */}
-        <PostList posts={posts}/>
+        <section>
+          <h2 className='text-textTitle border-b-4'>Articles</h2>
+          <PostList posts={posts}/>
+        </section>
       </main>
     </Layout>
   )

@@ -5,8 +5,13 @@ module.exports = {
       colors: {
         // DARK themes
         textNormal: 'rgba(255, 255, 255, 0.88)',
-        background: '#282c35',
-        textTitle: '#ffffff'
+        background: '#1f2022', 
+        text: '#b3b9c5',
+        textTitle: '#FFD479',
+        backgroundHover: '#3b3b3e',
+        border: '#d6d9de',
+        postTitle: '#DEE2E6',
+        time: '#868E96'
       },
     },
     height: {

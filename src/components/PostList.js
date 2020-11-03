@@ -10,7 +10,22 @@ const PostList = ({posts}) => {
                 const tags = node.frontmatter.tags || []
                 return (
                     <article key={node.fields.slug}>
-                        <header>
+                        <Link to={node.fields.slug}>
+                            <div className="hover:bg-backgroundHover text-postTitle px-4 py-3 rounded-lg">
+                                {/* TODO: only show Month and day */}
+                                <time className="pr-12 text-time font-normal text-small">{node.frontmatter.date}</time>
+                                <span className="text-xl font-bold">
+                                    { title }
+                                </span>
+                            </div>
+                        </Link>
+                        {/* <header>
+                        <div className="hover:bg-backgroundHover text-text px-4 py-3 rounded-lg">
+                            <time className="pr-12">Nov 03</time>
+                            <span className="text-xl font-bold">
+                                { title }
+                            </span>
+                        </div>
                             <h3
                                 style={{
                                     fontFamily: 'Montserrat, sans-serif',
@@ -30,7 +45,7 @@ const PostList = ({posts}) => {
                                     )
                                 })}
                             </div>
-                        </header>
+                        </header> */}
 
                         {/* <p
                     dangerouslySetInnerHTML={{
