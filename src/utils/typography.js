@@ -7,7 +7,21 @@ Wordpress2016.overrideThemeStyles = () => {
       boxShadow: `none`,
     },
     a: {
-      color: 'rgb(255, 167, 196)'
+      color: 'hsl(210,38%,95%)',
+      textDecoration: 'none',
+      borderBottomWidth: '2px',
+      borderBottomStyle: 'solid',
+      borderBottomColor: 'hsl(345,100%,69%)',
+      transition: 'all 200ms ease-in-out 0s',
+      fontWeight: '700',
+      boxShadow: 'none',
+      // color: '#6ab0f3',
+      // textDecoration: 'none',
+      // fontWeight: '700',
+      // borderColor: 'transparent'
+    },
+    'a:hover': {
+      color: 'hsl(345,100%,69%)'
     },
     blockquote: {
       color: 'inherit',

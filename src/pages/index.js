@@ -30,9 +30,9 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <aside>
+      {/* <aside>
         <Bio />
-      </aside>
+      </aside> */}
       <main>
         {/* <div>
           {allTags.map((tag) => {

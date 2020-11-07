@@ -18,11 +18,20 @@ const PostList = ({posts}) => {
                 return (
                     <article key={node.fields.slug}>
                         <Link to={node.fields.slug}>
-                            <div className="hover:bg-backgroundHover text-postTitle px-4 py-3 rounded-lg">
-                                <time className="pr-12 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
-                                <span className="text-xl font-bold">
-                                    { title }
-                                </span>
+                            <div className="hover:bg-backgroundHover text-postTitle px-4 py-3 rounded-lg flex justify-between">
+                                <div>
+                                    <time className="pr-12 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
+                                    <span className="text-xl font-bold">
+                                        { title }
+                                    </span>
+                                </div>
+                                <div className='flex items-center mt-2'>
+                                    {tags.map((tag) => {
+                                        return (
+                                            <span key={tag} className='mr-2 p-1 border border-solid rounded-full text-xs'>{tag}</span>
+                                        )
+                                    })}
+                                </div>
                             </div>
                         </Link>
                         {/* <header>
@@ -44,13 +53,6 @@ const PostList = ({posts}) => {
                                 </Link>
                             </h3>
                             <small>{node.frontmatter.date}</small>
-                            <div className='flex items-center mt-2'>
-                                {tags.map((tag) => {
-                                    return (
-                                        <span key={tag} className='mr-2 p-1 border border-solid rounded-full text-xs'>{tag}</span>
-                                    )
-                                })}
-                            </div>
                         </header> */}
 
                         {/* <p
