@@ -13,7 +13,7 @@ const Layout = ({ location, title, children }) => {
         <header className='flex justify-between items-center' style={{
           marginBottom: '2.625rem'
         }}>
-          <Header title={title} location={location}/> 
+          <Header title={title}/> 
         </header>
         {children}
       </div>

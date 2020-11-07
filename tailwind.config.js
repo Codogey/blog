@@ -11,7 +11,8 @@ module.exports = {
         backgroundHover: '#3b3b3e',
         border: '#d6d9de',
         postTitle: '#DEE2E6',
-        time: '#868E96'
+        time: '#868E96',
+        lightBackground: '#2D2D31'
       },
     },
     height: {
