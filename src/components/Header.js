@@ -18,10 +18,9 @@ const Header = ({ title }) => {
                 </Link>
             </div>
             <div className="font-normal text-xl">
-                <span className="px-5 py-3 hover:bg-lightBackground rounded-md mr-3">Articles</span>
-                <span className="px-5 py-3 hover:bg-lightBackground rounded-md mr-3">About</span>
-                <span className="px-5 py-3 hover:bg-lightBackground rounded-md">🌙</span>
-                <span className="px-5 py-3 hover:bg-lightBackground rounded-md">☀️</span>
+                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">Articles</span>
+                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">🌙</span>
+                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">☀️</span>
             </div>
         </div>
     )

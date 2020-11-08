@@ -5,14 +5,12 @@ import Header from "../components/Header"
 const Layout = ({ location, title, children }) => {
 
   return (
-    <div className='min-h-screen bg-background text-textNormal'>
+    <div className='theme-dark min-h-screen bg-background text-font'>
       {/* Helmet */}
       <div className='mx-auto' style={{
         maxWidth: '825px',
       }}>
-        <header className='flex justify-between items-center' style={{
-          marginBottom: '2.625rem'
-        }}>
+        <header className='flex justify-between items-center'>
           <Header title={title}/> 
         </header>
         {children}

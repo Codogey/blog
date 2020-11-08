@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.theme-dark {
+    --background: #1f2022;
+    --background-hover: #3b3b3e;
+    --font: #dee2e6;
+    --font-header: #FFD479;
+}
+
+.theme-light {
+    --background: #fff;
+    --background-hover: #f1f4f8;
+    --font: #495057;
+    --font-header: #1b1d25;
+}
 
 .gatsby-highlight-code-line {
     background-color: hsla(207, 95%, 15%, 1);

@@ -4,15 +4,14 @@ module.exports = {
     extend: {
       colors: {
         // DARK themes
-        textNormal: 'rgba(255, 255, 255, 0.88)',
-        background: '#1f2022', 
-        text: '#b3b9c5',
-        textTitle: '#FFD479',
-        backgroundHover: '#3b3b3e',
+        font: 'var(--font)',
+        background: 'var(--background)', 
+        // text: '#b3b9c5',
+        textTitle: 'var(--font-header)',
+        'background-hover': 'var(--background-hover)',
         border: '#d6d9de',
         postTitle: '#DEE2E6',
         time: '#868E96',
-        lightBackground: '#2D2D31'
       },
     },
     height: {
