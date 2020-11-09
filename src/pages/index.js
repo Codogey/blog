@@ -1,12 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/PostList"
 
 const BlogIndex = ({ data, location }) => {
+
+  // const [theme, setTheme ] = useState(DEFAULT_THEME);
+  // useEffect(() => {
+  //   applyTheme(theme);
+  // }, [theme]);
+
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 

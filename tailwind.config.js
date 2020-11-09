@@ -4,10 +4,10 @@ module.exports = {
     extend: {
       colors: {
         // DARK themes
-        font: 'var(--font)',
-        background: 'var(--background)', 
+        font: 'var(--color-text-primary)',
+        background: 'var(--background-primary)', 
         // text: '#b3b9c5',
-        textTitle: 'var(--font-header)',
+        textTitle: 'var(--color-text-secondary)',
         'background-hover': 'var(--background-hover)',
         border: '#d6d9de',
         postTitle: '#DEE2E6',

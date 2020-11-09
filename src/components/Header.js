@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
+import ThemeToggle from './ThemeToggle'
 
 const Header = ({ title }) => {
 
@@ -17,10 +18,13 @@ const Header = ({ title }) => {
                     {title}
                 </Link>
             </div>
-            <div className="font-normal text-xl">
-                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">Articles</span>
-                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">🌙</span>
-                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">☀️</span>
+            <div className="font-normal text-xl flex items-center">
+                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">
+                    About
+                </span>
+                <ThemeToggle />
+                {/* <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">🌙</span>
+                <span className="px-5 py-3 hover:bg-background-hover rounded-md mr-3">☀️</span> */}
             </div>
         </div>
     )
