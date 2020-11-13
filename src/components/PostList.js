@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { rhythm } from "../utils/typography"
 import { Link } from "gatsby"
 
 const PostList = ({posts}) => {

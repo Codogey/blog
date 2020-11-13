@@ -2,7 +2,7 @@
 title: Hello World
 date: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
-visible: false 
+visible: true 
 ---
 # h1 Heading 👀
 ## h2 Heading
@@ -100,6 +100,13 @@ var foo = function (bar) {
 };
 
 console.log(foo(5));
+```
+
+```diff
+function addTwoNumbers (num1, num2) {
+-  return 1 + 2
++  return num1 + num2
+}
 ```
 
 ## Tables

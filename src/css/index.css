@@ -38,3 +38,9 @@ body {
 .react-toggle-track-x {
     right: 7px; 
 }
+
+code.language-text, pre.language-text {
+    background: #2D2D31;
+    /* color: var(--dark-font-color)!important;
+    box-shadow: none; */
+}
