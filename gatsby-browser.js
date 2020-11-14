@@ -2,8 +2,11 @@
 import "typeface-montserrat"
 import "typeface-merriweather"
 
+// Style for code
+import './src/css/prism-theme.scss'
+
 // import "react-toggle/style.css"
-import "prism-theme-night-owl";
+// import "prism-theme-night-owl";
 
 require("prismjs/plugins/command-line/prism-command-line.css")
 export const onClientEntry = () => {

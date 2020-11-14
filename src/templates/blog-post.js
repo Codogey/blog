@@ -7,6 +7,8 @@ import SEO from "../components/seo"
 
 import { createLanguageLink } from "../i18s"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
+import components from '../components/PostComponents'
 
 import "katex/dist/katex.min.css"
 
@@ -86,7 +88,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   }
 
-
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -114,7 +115,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         </header>
         {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-        <MDXRenderer>{post.body}</MDXRenderer>
+          <MDXProvider components={components}><MDXRenderer>{post.body}</MDXRenderer></MDXProvider>
         <hr/>
         <nav>
           <ul
