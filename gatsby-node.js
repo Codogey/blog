@@ -1,5 +1,13 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+// For mdx components import
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    },
+  })
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -72,13 +80,6 @@ exports.createPages = async ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
-    createNodeField({
-      node,
-      name: 'directoryName',
-      value: path.basename(path.dirname(node.fileAbsolutePath)),
-    });
-  }
   if (node.internal.type === `Mdx`) {
     createNodeField({
       node,

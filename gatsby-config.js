@@ -27,11 +27,11 @@ module.exports = {
         name: `assets`,
       },
     },
-    'gatsby-plugin-mdx',
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        plugins: [
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -65,8 +65,8 @@ module.exports = {
           },
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-        ],
-      },
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
