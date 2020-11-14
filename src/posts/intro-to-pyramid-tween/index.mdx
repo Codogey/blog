@@ -6,12 +6,17 @@ tags: ['Python']
 visible: true 
 ---
 ```jsx{5}
-class Square extends React.Component {
+class ShoppingList extends React.Component {
   render() {
     return (
-      <button className="square">
-        {this.props.value}
-      </button>
+      <div className="shopping-list">
+        <h1>Shopping List for {this.props.name}</h1>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Oculus</li>
+        </ul>
+      </div>
     );
   }
 }

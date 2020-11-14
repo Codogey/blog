@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import { Link } from "gatsby"
+import Tag from './Tag'
 
 const PostList = ({posts}) => {
     const formatDate = (date) => {
@@ -27,7 +28,7 @@ const PostList = ({posts}) => {
                                 <div className='flex items-center mt-2'>
                                     {tags.map((tag) => {
                                         return (
-                                            <span key={tag} className='mr-2 p-1 border border-solid rounded-full text-xs'>{tag}</span>
+                                            <Tag tag={tag}/>
                                         )
                                     })}
                                 </div>

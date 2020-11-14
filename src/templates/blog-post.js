@@ -11,6 +11,7 @@ import { MDXProvider } from "@mdx-js/react"
 import components from '../components/PostComponents'
 
 import "katex/dist/katex.min.css"
+import Tag from "../components/Tag"
 
 
 function Comment({ commentBox }) {
@@ -71,7 +72,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const renderTranslationPanel = (langKey) => {
     return (
-
       <div>
         <Panel>
           <span>This article is also available in: </span>
@@ -85,7 +85,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </Panel>
       </div>
     )
+  }
 
+  const renderTags = (tags) => {
+    return (
+      <div className='flex items-center mt-2'>
+        {tags.map((tag) => {
+          return (
+            <Tag tag={tag}/>
+          )
+        })}
+      </div>
+    )
   }
 
   return (
@@ -95,28 +106,23 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article>
-        <header>
-          <h1
-            style={{
-              marginBottom: 0,
-            }}
-          >
+        <header className='py-6'>
+          <h1 className='text-4xl font-bold'>
             {post.frontmatter.title}
           </h1>
-          <p
-            style={{
-              display: `block`,
-            }}
-          >
-            {post.frontmatter.date}
-          </p>
+          <div className='mt-6 py-4'>
+            <time>
+              {post.frontmatter.date}
+            </time>
+            {renderTags(post.frontmatter.tags)}
+          </div>
 
           {hasChineseVersion && renderTranslationPanel(langKey)}
 
         </header>
         {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
-          <MDXProvider components={components}><MDXRenderer>{post.body}</MDXRenderer></MDXProvider>
-        <hr/>
+        <MDXProvider components={components}><MDXRenderer>{post.body}</MDXRenderer></MDXProvider>
+        <hr />
         <nav>
           <ul
             style={{
@@ -143,9 +149,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </li>
           </ul>
         </nav>
-        <footer>
-          <Bio />
-        </footer>
         {/* COMMENT BOX */}
         <section id="comments">
           <h2>Comments</h2>
@@ -174,6 +177,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
       slug
       fields {

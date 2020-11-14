@@ -17,6 +17,12 @@ $operator: #fc929e;
 $dark: #282c34;
 $white: #ffffff;
 
+:not(pre) > code[class*='language-'] {
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   padding: 5px;
+   border-radius: .35rem;
+}
+
 pre[class*="language-"] {
   padding: 1em;
   margin: .5em 0;
