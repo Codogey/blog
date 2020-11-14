@@ -8,14 +8,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
+        allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
           edges {
             node {
+              slug
               fields {
-                slug
                 langKey
                 directoryName
               }
@@ -29,12 +29,13 @@ exports.createPages = async ({ graphql, actions }) => {
     `
   )
 
+
   if (result.errors) {
     throw result.errors
   }
 
   // Create blog posts pages.
-  const posts = result.data.allMarkdownRemark.edges
+  const posts = result.data.allMdx.edges
 
   translationsByDirectory = new Map()
 
@@ -56,10 +57,10 @@ exports.createPages = async ({ graphql, actions }) => {
     const translations = translationsByDirectory.get(directoryName)
 
     createPage({
-      path: post.node.fields.slug,
+      path: post.node.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug,
+        slug: post.node.slug,
         previous,
         next,
         translations,
@@ -76,6 +77,20 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       name: 'directoryName',
       value: path.basename(path.dirname(node.fileAbsolutePath)),
+    });
+  }
+  if (node.internal.type === `Mdx`) {
+    createNodeField({
+      node,
+      name: 'directoryName',
+      value: path.basename(path.dirname(node.fileAbsolutePath)),
+    });
+
+    // HACK: remove these hacks
+    createNodeField({
+      node,
+      name: 'langKey',
+      value: 'en',
     });
   }
 }

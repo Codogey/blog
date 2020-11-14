@@ -7,8 +7,10 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
 import { createLanguageLink } from "../i18s"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import "katex/dist/katex.min.css"
+
 
 function Comment({ commentBox }) {
   return <div ref={commentBox} className="comments" />
@@ -34,10 +36,12 @@ function Panel({ children, style = {} }) {
 }
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
+  console.log(post)
   const siteTitle = data.site.siteMetadata.title
   const { previous, next, translations } = pageContext
-  const { langKey, slug, directoryName } = post.fields
+  const { langKey, directoryName } = post.fields
+  const slug = post.slug
 
   // Comment Box
   const commentBox = React.createRef()
@@ -83,6 +87,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   }
 
+  const MyH1 = props => <h1 style={{ color: "tomato" }} {...props} />
+const MyParagraph = props => (
+  <p style={{ color: "tomato" ,fontSize: "18px", lineHeight: 1.6 }} {...props} />
+)
+
+const components = {
+  h1: MyH1,
+  p: MyParagraph,
+}
+  const shortcodes = { Bio }
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO
@@ -112,7 +127,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           {hasChineseVersion && renderTranslationPanel(langKey)}
 
         </header>
-        <section dangerouslySetInnerHTML={{ __html: post.html }} />
+        {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
+        <MDXRenderer components={components}>{post.body}</MDXRenderer>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -130,14 +146,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             <li>
               {previous && (
-                <Link to={previous.fields.slug} rel="prev">
+                <Link to={previous.slug} rel="prev">
                   ← {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
-                <Link to={next.fields.slug} rel="next">
+                <Link to={next.slug} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               )}
@@ -167,17 +183,17 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(  slug: { eq: $slug } ) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
         description
       }
+      slug
       fields {
-        slug
         langKey
         directoryName
       }

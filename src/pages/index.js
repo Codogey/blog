@@ -13,7 +13,7 @@ const BlogIndex = ({ data, location }) => {
   // }, [theme]);
 
   const siteTitle = data.site.siteMetadata.title
-  const posts = data.allMarkdownRemark.edges
+  const posts = data.allMdx.edges
 
   const getAvaiableTags = () => {
     let tags = new Set()
@@ -64,7 +64,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       filter: { 
         frontmatter: {visible: {ne: false}}
         fields: { langKey: { eq: $langKey } } 
@@ -74,9 +74,7 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt
-          fields {
-            slug
-          }
+          slug
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
