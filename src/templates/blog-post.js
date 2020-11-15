@@ -90,7 +90,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const renderTags = (tags) => {
     return (
       <div className='flex items-center mt-2'>
-        {tags.map((tag) => {
+        {tags && tags.map((tag) => {
           return (
             <Tag tag={tag}/>
           )

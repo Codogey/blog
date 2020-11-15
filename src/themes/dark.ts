@@ -8,5 +8,4 @@ export default extend(base, {
   textPrimary: '#dee2e6',
   textSecondary: '#FFD479',
   blockquoteBackground: '#2a4661',
-  inlineCodeBackground: '#2d2d31'
 });
