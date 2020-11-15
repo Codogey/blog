@@ -39,7 +39,6 @@ function Panel({ children, style = {} }) {
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
-  console.log(post)
   const siteTitle = data.site.siteMetadata.title
   const { previous, next, translations } = pageContext
   const { langKey, directoryName } = post.fields

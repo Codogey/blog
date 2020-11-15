@@ -1,16 +1,12 @@
-import React, { useEffect, useState} from 'react'
+import React, { useContext, useEffect, useState} from 'react'
 import Toggle from 'react-toggle'
 import sun from '../assets/sun.png';
 import moon from '../assets/moon.png';
 
-import { DEFAULT_THEME } from '../themes';
-import { applyTheme } from '../themes/utils'
+import { ThemeContext } from '../themes/ThemeContext'
 
 const ThemeToggle = () => {
-      const [theme, setTheme ] = useState(DEFAULT_THEME);
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
+    const { theme, setThemeGlobal } = useContext(ThemeContext)
     const checkedIcon = (
         <img
             src={sun}
@@ -31,13 +27,14 @@ const ThemeToggle = () => {
     );
     const handleThemeToggleChanged = (e) => {
         const checkStatus = e.target.checked
-        setTheme(checkStatus ? 'light' : 'dark')
+        setThemeGlobal(checkStatus ? 'light' : 'dark')
     }
     return (
         <Toggle
             id='cheese-status'
             icons={{ checked: checkedIcon, unchecked: uncheckedIcon }}
             onChange={handleThemeToggleChanged}
+            defaultChecked={theme === 'dark' ? false : true}
         />
     );
 
