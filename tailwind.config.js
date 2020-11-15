@@ -6,6 +6,7 @@ module.exports = {
         // DARK themes
         font: 'var(--color-text-primary)',
         background: 'var(--background-primary)', 
+        backgroundSecondary: 'var(--background-secondary)', 
         // text: '#b3b9c5',
         textTitle: 'var(--color-text-secondary)',
         'background-hover': 'var(--background-hover)',

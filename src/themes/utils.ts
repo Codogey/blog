@@ -17,7 +17,10 @@ export const mapTheme = (variables: ITheme): IMappedTheme => {
         '--color-text-primary': variables.textPrimary || '',
         '--color-text-secondary': variables.textSecondary|| '',
         '--background-primary': variables.backgroundPrimary || '',
+        '--background-secondary': variables.backgroundSecondary || '',
         '--background-hover': variables.backgroundHover || '',
+        '--background-blockquote': variables.blockquoteBackground || '',
+        '--background-inline-code': variables.inlineCodeBackground || '',
     };
 };
 

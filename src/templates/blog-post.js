@@ -1,7 +1,6 @@
 import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -12,6 +11,7 @@ import components from '../components/PostComponents'
 
 import "katex/dist/katex.min.css"
 import Tag from "../components/Tag"
+import PageNav from "../components/PageNav"
 
 
 function Comment({ commentBox }) {
@@ -123,32 +123,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
         <MDXProvider components={components}><MDXRenderer>{post.body}</MDXRenderer></MDXProvider>
         <hr />
-        <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-            <li>
-              {previous && (
-                <Link to={previous.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              )}
-            </li>
-          </ul>
-        </nav>
+        <PageNav previous={previous} next={next}/>
         {/* COMMENT BOX */}
         <section id="comments">
           <h2>Comments</h2>
