@@ -4,7 +4,7 @@ import ThemeToggle from './ThemeToggle'
 
 const HeaderItem = ({text}) => {
     return (
-        <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block mt-4 lg:inline-block lg:mt-0 text-font hover:text-white mr-4">
+        <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block my-2 lg:inline-block lg:mt-0 text-font hover:text-white mr-4">
             {text}
         </a>
     )
@@ -44,7 +44,9 @@ const Header = ({ title }) => {
                 </div>
                 {/* RIGHT HEADER */}
                 <div>
-                 <ThemeToggle />
+                    <div className='ml-4'>
+                        <ThemeToggle />
+                    </div>
                     {/* <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download</a> */}
                 </div>
             </div>
