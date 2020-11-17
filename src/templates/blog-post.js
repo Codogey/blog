@@ -42,7 +42,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata.title
   const { previous, next, translations } = pageContext
   const { langKey, directoryName } = post.fields
-  const slug = post.slug
+  const slug = post.fields.slug
 
   // Comment Box
   const commentBox = React.createRef()
@@ -143,7 +143,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    mdx(  slug: { eq: $slug } ) {
+    mdx( fields:{  slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       body
@@ -153,10 +153,10 @@ export const pageQuery = graphql`
         description
         tags
       }
-      slug
       fields {
         langKey
         directoryName
+        slug
       }
     }
   }

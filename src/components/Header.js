@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from "gatsby"
 import ThemeToggle from './ThemeToggle'
 
 const HeaderItem = ({text}) => {

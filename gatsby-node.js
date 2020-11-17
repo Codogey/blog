@@ -22,10 +22,10 @@ exports.createPages = async ({ graphql, actions }) => {
         ) {
           edges {
             node {
-              slug
               fields {
                 langKey
                 directoryName
+                slug
               }
               frontmatter {
                 title
@@ -60,15 +60,29 @@ exports.createPages = async ({ graphql, actions }) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
-    const { directoryName } = post.node.fields
+    const { directoryName, langKey, slug } = post.node.fields
 
     const translations = translationsByDirectory.get(directoryName)
 
+    let path
+    // if (langKey === 'en') {
+    //   path = `/${slug}/`
+    // } else {
+      path = `/${langKey}/${slug}/` 
+    // }
+
+    console.log(directoryName)
+    console.log(path)
+    console.log(post.node.frontmatter.title)
+
     createPage({
-      path: post.node.slug,
+      path: path,
+      // matchPath: path,
+      // path: post.node.slug,
       component: blogPost,
       context: {
-        slug: post.node.slug,
+        // slug: post.node.slug,
+        slug: slug,
         previous,
         next,
         translations,
@@ -87,11 +101,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value: path.basename(path.dirname(node.fileAbsolutePath)),
     });
 
-    // HACK: remove these hacks
+    const {slug, langKey} = getSlugAndLangKey(node.fileAbsolutePath)
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
     createNodeField({
       node,
       name: 'langKey',
-      value: 'en',
+      value: langKey,
     });
   }
+}
+
+const getSlugAndLangKey = (filePath) => {
+  // Split by / and then get the last element
+  const filePathArgs = filePath.split('/').slice(-2)
+  const slug = filePathArgs[0]
+  const fileName = filePathArgs[1]
+  const args = fileName.split('.')
+  let langKey
+  if (args.length === 2) {
+    // it's index.md or index.mdx, use default lang
+    langKey = 'en'
+  } else {
+    langKey = fileName.split('.')[1]
+  }
+    return {slug, langKey}
 }

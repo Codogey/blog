@@ -7,11 +7,6 @@ import PostList from "../components/PostList"
 
 const BlogIndex = ({ data, location }) => {
 
-  // const [theme, setTheme ] = useState(DEFAULT_THEME);
-  // useEffect(() => {
-  //   applyTheme(theme);
-  // }, [theme]);
-
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
@@ -58,7 +53,7 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query($langKey: String!) {
+  query {
     site {
       siteMetadata {
         title
@@ -67,7 +62,7 @@ export const pageQuery = graphql`
     allMdx(
       filter: { 
         frontmatter: {visible: {ne: false}}
-        fields: { langKey: { eq: $langKey } } 
+        # fields: { langKey: { eq: $langKey } } 
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
