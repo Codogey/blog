@@ -46,7 +46,6 @@ module.exports = {
             },
           },
           // place before other plugins that modify code blocks (such as prismjs)
-          // 'gatsby-remark-prismjs',
           'gatsby-remark-graphviz',
           {
             resolve: `gatsby-remark-prismjs`,
@@ -69,14 +68,9 @@ module.exports = {
         ]
       }
     },
+    `gatsby-plugin-i18n-mdx`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
-      },
-    },
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -91,13 +85,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {        
-        langKeyDefault: 'en',
-        useLangKeyLayout: false,
-      }
-    },
+    // {
+    //   resolve: 'gatsby-plugin-i18n',
+    //   options: {        
+    //     langKeyDefault: 'en',
+    //     useLangKeyLayout: false,
+    //   }
+    // },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
