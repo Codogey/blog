@@ -65,24 +65,19 @@ exports.createPages = async ({ graphql, actions }) => {
     const translations = translationsByDirectory.get(directoryName)
 
     let path
-    // if (langKey === 'en') {
-    //   path = `/${slug}/`
-    // } else {
+    if (langKey === 'en') {
+      path = `/${slug}/`
+    } else {
       path = `/${langKey}/${slug}/` 
-    // }
+    }
 
-    console.log(directoryName)
-    console.log(path)
-    console.log(post.node.frontmatter.title)
 
     createPage({
       path: path,
-      // matchPath: path,
-      // path: post.node.slug,
       component: blogPost,
       context: {
-        // slug: post.node.slug,
         slug: slug,
+        langKey: langKey,
         previous,
         next,
         translations,
