@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ThemeToggle from './ThemeToggle'
+import {Link} from 'gatsby'
 
 const HeaderItem = ({text}) => {
     return (
@@ -28,7 +29,9 @@ const Header = ({ title }) => {
         <nav class="flex items-center justify-between flex-wrap p-6">
             <div class="flex items-center flex-shrink-0 text-textTitle mr-6">
                 {headerIcon}
-                <span class="font-semibold text-xl tracking-tight">{title}</span>
+                <Link to='/'>
+                    <span class="font-semibold text-xl tracking-tight">{title}</span>
+                </Link>
             </div>
             <div class="block lg:hidden">
                 <button class="flex items-center px-3 py-2 border rounded text-font border-font hover:text-white hover:border-white">
