@@ -4,7 +4,7 @@ import {Link} from 'gatsby'
 
 const HeaderItem = ({text}) => {
     return (
-        <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block my-2 lg:inline-block lg:mt-0 text-font hover:text-white mr-4">
+        <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block lg:inline-block lg:mt-0 text-font hover:text-white">
             {text}
         </a>
     )

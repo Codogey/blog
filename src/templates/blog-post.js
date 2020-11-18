@@ -23,6 +23,7 @@ function Panel({ children, style = {} }) {
   return (
     <p
       style={{
+        marginTop: '1rem',
         fontSize: '0.9em',
         border: '1px solid hsla(0, 0%, 100%, 0.2)',
         borderRadius: '0.75em',
@@ -103,12 +104,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article>
+      <article className='px-6'>
         <header className='py-6'>
-          <h1 className='text-4xl font-bold'>
+          <h1 className='lg:text-4xl text-3xl font-bold'>
             {post.frontmatter.title}
           </h1>
-          <div className='mt-6 py-4'>
+          <div className='mt-6'>
             <time>
               {post.frontmatter.date}
             </time>
@@ -120,7 +121,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </header>
         {/* <section dangerouslySetInnerHTML={{ __html: post.html }} /> */}
         <MDXProvider components={components}><MDXRenderer>{post.body}</MDXRenderer></MDXProvider>
-        <hr />
         <PageNav previous={previous} next={next}/>
         {/* COMMENT BOX */}
         <section id="comments">

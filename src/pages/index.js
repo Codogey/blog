@@ -41,8 +41,8 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
         </div> */}
-        <section>
-          <h2 className='text-textTitle border-b-4'>Articles</h2>
+        <section className='px-4'>
+          <h2 className='text-textTitle lg:border-b-4 text-3xl mb-2'>Articles</h2>
           <PostList posts={posts}/>
         </section>
       </main>

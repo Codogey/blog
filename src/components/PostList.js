@@ -18,14 +18,14 @@ const PostList = ({posts}) => {
                 return (
                     <article key={node.slug}>
                         <Link to={node.slug}>
-                            <div className="hover:bg-background-hover text-font px-4 py-3 rounded-lg flex justify-between">
-                                <div>
-                                    <time className="pr-12 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
-                                    <span className="text-xl font-bold">
+                            <div className="hover:bg-background-hover text-font py-3 rounded-lg flex justify-between">
+                                <div className='flex'>
+                                    <time className="flex-grow-0 flex-shrink-0 w-16 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
+                                    <h3 className="text-xl font-bold">
                                         { title }
-                                    </span>
+                                    </h3>
                                 </div>
-                                <div className='flex items-center mt-2'>
+                                <div className='hidden items-center mt-2 lg:flex'>
                                     {tags.map((tag) => {
                                         return (
                                             <Tag tag={tag}/>
