@@ -22,10 +22,10 @@ const PageNav = ({previous, next}) => {
     return (
         <nav className='flex flex-col lg:flex-row items-stretch my-4'>
             { previous && (
-                <NavCard isPrev={true} title={previous.frontmatter.title} slug={previous.slug}/>
+                <NavCard isPrev={true} title={previous.frontmatter.title} slug={previous.fields.slug}/>
             )}
             { next && (
-                <NavCard isPrev={false} title={next.frontmatter.title} slug={next.slug}/>
+                <NavCard isPrev={false} title={next.frontmatter.title} slug={next.fields.slug}/>
             )}
         </nav>
     )

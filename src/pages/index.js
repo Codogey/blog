@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PostList from "../components/PostList"
+import Terminal from "../components/Terminal"
 
 const BlogIndex = ({ data, location }) => {
 

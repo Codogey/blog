@@ -57,6 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
   posts.forEach((post, index) => {
+    // BUG: en and zh-hans are mixed for previous and next
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
