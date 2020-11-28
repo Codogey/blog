@@ -5,6 +5,14 @@ description: ""
 tags: ['Python']
 visible: true 
 ---
+
+<Underline> Test </Underline>
+<Box> Test </Box>
+<Circle> Test </Circle>
+<Highlight> Test </Highlight>
+<StrikeThough> Test </StrikeThough>
+<CrossedOff> Test </CrossedOff>
+
 ## What is Tween?
 
 Tween is a contraction of the word "between" that sits between Pyramid router component and upstream WSGI component. 

@@ -1,4 +1,6 @@
 import React from "react"
+import { Underline, Box, Circle, Highlight, StrikeThrough, CrossedOff } from './Rough'
+
 
 // TODO: most of styles are same.
 const H2 = props => <h2 style={{
@@ -7,7 +9,7 @@ const H2 = props => <h2 style={{
     marginTop: '1.5rem',
     marginBottom: '1rem',
     fontSize: '1.75rem',
-    color: 'var(--color-text-secondary)' 
+    color: 'var(--color-text-secondary)'
 }} {...props} />
 
 const H3 = props => <h3 style={{
@@ -16,7 +18,7 @@ const H3 = props => <h3 style={{
     marginTop: '1.5rem',
     marginBottom: '1rem',
     fontSize: '1.5rem',
-    color: 'var(--color-text-secondary)' 
+    color: 'var(--color-text-secondary)'
 }} {...props} />
 
 const H4 = props => <h4 style={{
@@ -25,7 +27,7 @@ const H4 = props => <h4 style={{
     marginTop: '1.5rem',
     marginBottom: '1rem',
     fontSize: '1.25rem',
-    color: 'var(--color-text-secondary)' 
+    color: 'var(--color-text-secondary)'
 }} {...props} />
 
 
@@ -46,14 +48,20 @@ const Blockquote = props => <blockquote style={{
     borderLeft: '3px solid #6ab0f3',
     color: 'var(--color-text-primary)',
     padding: '2rem'
-}} {...props}/>
+}} {...props} />
 
 const components = {
     h2: H2,
     h3: H3,
     h4: H4,
     p: P,
-    blockquote: Blockquote
+    blockquote: Blockquote,
+    Underline,
+    Box,
+    Circle,
+    Highlight,
+    StrikeThrough,
+    CrossedOff
 }
 
 export default components

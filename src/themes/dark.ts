@@ -8,4 +8,5 @@ export default extend(base, {
   textPrimary: '#dee2e6',
   textSecondary: '#FFD479',
   blockquoteBackground: '#2a4661',
+  highlight: 'hsl(50, 80%, 35%)',
 });
