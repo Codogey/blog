@@ -1,0 +1,47 @@
+name: Xuanqi Li
+address: San Mateo, CA 94402
+tel: 408.406.8721
+email: lixuanqi1995@gmail.com
+github: github.com/LiXuanqi
+linkedin: www.linkedin.com/in/xuanqi-li
+
+education:
+  - name: Northeastern University
+    time: 09/2018 – 12/2019
+    desc:
+      - M.S. Information Systems, concentrating in Computer Software Engineering, GPA 3.89
+
+work_experience:
+  - position: Software Engineer at Ads Platform
+    time: 01/2020 – Present
+    company: Yelp
+    location: San Francisco, CA
+    desc:
+      - Worked as a backend software engineer in Ads Platform Customization Initiative, focusing on offering improved targeting and control of given ad campaign.
+      - Implemented the feature that validates the ads creative content for Offer Campaigns V2 project.
+      - Migrated two MapReduce jobs on Amazon EMR to SparkETL on PaaSTA to reduce the runtime and cost.
+      - Became the yelp-main push master to coordinate folks and drive the biggest push for our monolith repo.
+  - position: Software Engineering Intern
+    time: 05/2019 – 08/2019
+    company: Yelp
+    location: San Francisco, CA
+    desc:
+      - Designed the schema of new Cassandra table to support more complex and flexible query.
+      - Changed MapReduce batch based on mrjob and stored output into Cassandra and S3 with boto3.
+      - Created an API in monolith architecture yelp-main repo using Pyramid to join and filter MySQL tables with SQLALchemy.
+      - Built a python batch for comparing or backfilling Cassandra tables in the past two years(140GB) and solved the performance problems of querying without partition key.
+
+projects:
+  - name: 'Snackathon: A React and Flask based Web Application for snack availability detection'
+    desc:
+      - Build the front end with React, Bootstrap and backend with Flask, Redis in 3 days hackathon.
+      - Set up Raspberry Pi, created a bash script and cron job to take the photo for snack rack per 10 seconds.
+      - Implemented the tool with OpenCV for labeling pictures and preprocess data with Numpy, Pandas.
+      - Trained the Support Vector Machine (SVM) model with scikit-learn and stored on disk with pickle.
+  - name: An Angular and Spring based IoT Application for device monitoring
+    desc:
+      - Created a dashboard web application with advanced charts using Angular, Ant Design, D3.js for monitoring
+      - Developed the backend with Spring Boot, Spring Data JPA, Spring WebSocket
+      - Design the RESTful API and implemented the token-based authentication feature with Spring Security, JWT.
+      - Built a data pipeline using Kafka, Cassandra, Spark, ZooKeeper to analyze and store sensors’ data.
+      - Built the image with Docker and Docker compose and deployed at AWS EC2

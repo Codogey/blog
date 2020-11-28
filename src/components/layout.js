@@ -1,7 +1,7 @@
 import React from "react"
 
 import Header from "../components/Header"
-import Terminal from "../components/Terminal"
+
 
 const Layout = ({ location, title, children }) => {
 
@@ -9,7 +9,7 @@ const Layout = ({ location, title, children }) => {
     <div className='theme-dark min-h-screen bg-background text-font'>
       {/* Helmet */}
         <Header title={title}/> 
-        <div style={{
+        {/* <div style={{
           display: 'flex',
           justifyContent: 'center',
           width: '100%',
@@ -20,7 +20,7 @@ const Layout = ({ location, title, children }) => {
         }}>
           <Terminal />
 
-        </div>
+        </div> */}
       <div className='mx-auto' style={{
         maxWidth: '825px',
       }}>

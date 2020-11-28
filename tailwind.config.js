@@ -14,6 +14,9 @@ module.exports = {
         postTitle: '#DEE2E6',
         time: '#868E96',
       },
+      borderWidth: {
+        '1': '1px'
+      }
     },
     height: {
       '42px': '42px'

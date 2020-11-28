@@ -3,11 +3,13 @@ import ThemeToggle from './ThemeToggle'
 import {Link} from 'gatsby'
 import {VscOctoface} from 'react-icons/vsc'
 
-const HeaderItem = ({text}) => {
+const HeaderItem = ({text, to}) => {
     return (
-        <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block lg:inline-block lg:mt-0 text-font hover:text-white">
-            {text}
-        </a>
+        <Link to={to}>
+            <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block lg:inline-block lg:mt-0 text-font hover:text-white">
+                {text}
+            </a>
+        </Link>
     )
 }
 
@@ -39,8 +41,8 @@ const Header = ({ title }) => {
             <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto` + (isMenuOpened ? '' : ' hidden')}>
                 {/* LEFT HEADER */}
                 <div class="text-sm lg:flex-grow">
-                    <HeaderItem text='Blog'/>
-                    <HeaderItem text='About'/>
+                    <HeaderItem text='Blog' to='/'/>
+                    <HeaderItem text='About' to='/resume'/>
                 </div>
                 {/* RIGHT HEADER */}
                 <div>

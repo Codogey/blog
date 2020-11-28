@@ -26,17 +26,16 @@ const Terminal = () => {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div ref={terminalBox} id="termynal" data-termynal>
-            <span data-ty="input">me = new Developer('1_x7')</span>
-            {/* <span data-ty="progress"></span> */}
-            <span data-ty="input">me.getSkills()</span>
-            <span data-ty data-ty-prompt=">>>">Python, Javascript</span>
-            <span data-ty="input">me.getSkills()</span>
-            <span data-ty data-ty-prompt=">>>">Python, Javascript</span>
-            <span data-ty="input">me.getSkills()</span>
-            <span data-ty data-ty-prompt=">>>">Python, Javascript</span>
-            <span data-ty="input">me.getSkills()</span>
-            <span data-ty data-ty-prompt=">>>">Python, Javascript</span>
+        <div className='flex justify-center mb-3'>
+            <div ref={terminalBox} id="termynal" data-termynal>
+                <span data-ty="input">me = new Developer('1_x7')</span>
+                {/* <span data-ty="progress"></span> */}
+                <span data-ty="input">me.getSkills()</span>
+                <span data-ty data-ty-prompt=">>>">Python, Javascript</span>
+                <span data-ty="input">me.github</span>
+                <span data-ty data-ty-prompt=">>>">https://github.com/LiXuanqi</span>
+            </div>
+
         </div>
     )
 

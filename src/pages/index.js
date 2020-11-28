@@ -34,6 +34,7 @@ const BlogIndex = ({ data, location }) => {
       {/* <aside>
         <Bio />
       </aside> */}
+          <Terminal />
       <main>
         {/* <div>
           {allTags.map((tag) => {
@@ -43,7 +44,7 @@ const BlogIndex = ({ data, location }) => {
           })}
         </div> */}
         <section className='px-4'>
-          <h2 className='text-textTitle lg:border-b-4 text-3xl mb-2'>Articles</h2>
+          <h2 className='text-textTitle lg:border-b-4 text-3xl mb-2 font-bold'>Articles</h2>
           <PostList posts={posts}/>
         </section>
       </main>
