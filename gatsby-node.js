@@ -87,8 +87,10 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
+const { createContentDigest } = require("gatsby-core-utils");
+
+exports.onCreateNode = async ({ node, actions, loadNodeContent, createNodeId }) => {
+  const { createNodeField, createNode } = actions
 
   if (node.internal.type === `Mdx`) {
     createNodeField({
@@ -108,6 +110,24 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       name: 'langKey',
       value: langKey,
     });
+  }
+
+  // deploy static html file
+  if (node.internal.type === 'File' && node.internal.mediaType === 'text/html') {
+    
+    const nodeContent = await loadNodeContent(node)
+
+    const htmlNodeContent = {
+      id: createNodeId(node.relativePath),
+      content: nodeContent,
+      name: node.name,
+      internal: {
+        type: 'TalkHtmlContent',
+        contentDigest: createContentDigest(nodeContent),
+      }
+    }
+
+    createNode(htmlNodeContent)
   }
 }
 
