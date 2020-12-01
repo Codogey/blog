@@ -112,23 +112,6 @@ exports.onCreateNode = async ({ node, actions, loadNodeContent, createNodeId }) 
     });
   }
 
-  // deploy static html file
-  if (node.internal.type === 'File' && node.internal.mediaType === 'text/html') {
-    
-    const nodeContent = await loadNodeContent(node)
-
-    const htmlNodeContent = {
-      id: createNodeId(node.relativePath),
-      content: nodeContent,
-      name: node.name,
-      internal: {
-        type: 'TalkHtmlContent',
-        contentDigest: createContentDigest(nodeContent),
-      }
-    }
-
-    createNode(htmlNodeContent)
-  }
 }
 
 const getSlugAndLangKey = (filePath) => {
@@ -145,4 +128,13 @@ const getSlugAndLangKey = (filePath) => {
     langKey = fileName.split('.')[1]
   }
     return {slug, langKey}
+}
+
+
+const express = require(`express`)
+
+// HACK: wordaround for https://github.com/gatsbyjs/gatsby/issues/13072
+// Enable development support for serving HTML from `./static` folder
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static(`static`))
 }
