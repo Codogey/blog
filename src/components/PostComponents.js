@@ -50,18 +50,27 @@ const Blockquote = props => <blockquote style={{
     padding: '2rem'
 }} {...props} />
 
+const Ul = props => <ul style={{
+    listStyleType: 'disc',
+    padding: '0 1em'
+}} {...props} />
+
+const Img = props => <img {...props} /> 
+
 const components = {
     h2: H2,
     h3: H3,
     h4: H4,
     p: P,
+    ul: Ul,
     blockquote: Blockquote,
     Underline,
     Box,
     Circle,
     Highlight,
     StrikeThrough,
-    CrossedOff
+    CrossedOff,
+    Img
 }
 
 export default components

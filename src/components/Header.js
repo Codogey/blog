@@ -6,7 +6,7 @@ import {VscOctoface} from 'react-icons/vsc'
 const HeaderItem = ({text, to}) => {
     return (
         <Link to={to}>
-            <a href="#responsive-header" class="px-5 py-3 rounded-md hover:bg-background-hover block lg:inline-block lg:mt-0 text-font">
+            <a class="px-5 py-3 rounded-md hover:bg-background-hover block lg:inline-block lg:mt-0 text-font">
                 {text}
             </a>
         </Link>
