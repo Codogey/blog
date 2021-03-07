@@ -49,7 +49,7 @@ code[class*=language-], pre[class*=language-] {
 
 pre[class*="language-"] {
   padding: 1em;
-  margin: .5em 0;
+  margin: 0.5em 0;
   overflow: auto;
 //   background: #2c292e;
 }
@@ -87,11 +87,10 @@ pre[class*="language-"] {
    color: $white;
    border-radius: 10px;
    tab-size: 1.5em;
-    margin-bottom: 1.75rem;
-   //  margin-left: -1.3125rem;
-   //  margin-right: -1.3125rem;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   -webkit-overflow-scrolling: touch;
+   overflow: auto;
 }
 
 .token.attr-name {
