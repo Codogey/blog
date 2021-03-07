@@ -63,7 +63,7 @@ export const pageQuery = graphql`
     }
     allMdx(
       filter: { 
-        frontmatter: {visible: {ne: false}}
+        frontmatter: {visible: {eq: true}}
         fields: { langKey: { eq: "en" } } 
       }
       sort: { fields: [frontmatter___date], order: DESC }

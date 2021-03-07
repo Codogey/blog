@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    @apply bg-background
+    @apply bg-background;
 }
 
 .react-toggle-track-check, .react-toggle-track-x {

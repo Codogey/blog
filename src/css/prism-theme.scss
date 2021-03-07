@@ -42,7 +42,7 @@ code[class*=language-], pre[class*=language-] {
 
 :not(pre) > code[class*='language-'] {
    border: 1px solid rgba(255, 255, 255, 0.05);
-   padding: 5px;
+   padding: 4px;
    border-radius: .35rem;
    background: var(--background-secondary);
    margin-right: 0.2rem;

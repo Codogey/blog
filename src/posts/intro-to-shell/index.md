@@ -3,7 +3,6 @@ title: Intro to Shell
 date: "2020-12-31T02:12:03.284Z"
 description: ""
 tags: ['Shell']
-visible: true 
 ---
 
 ## What is shell?

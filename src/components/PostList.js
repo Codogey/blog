@@ -19,7 +19,7 @@ const PostList = ({posts}) => {
                     <article key={node.slug}>
                         <Link to={node.slug}>
                             <div className="hover:bg-background-hover text-font p-3 rounded-lg flex justify-between">
-                                <div className='flex'>
+                                <div className='flex items-center'>
                                     <time className="flex-grow-0 flex-shrink-0 w-16 text-time font-normal text-small">{formatDate(node.frontmatter.date)}</time>
                                     <h3 className="text-xl font-bold">
                                         { title }
