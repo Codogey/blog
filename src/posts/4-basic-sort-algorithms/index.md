@@ -1,16 +1,18 @@
 ---
-title: 4 basic sort algorithms 
+title: 4 Basic Sort Algorithms 
 date: "2018-11-25T22:12:03.284Z"
 description: "Hello World"
 tags: ['Algorithm']
 ---
 
 ## Overview
-The article introduces some common sort algorithms as bellow.
+The article introduces 4 sort algorithms.
 - Selection sort
 - Quicksort
 - Merge sort
-You can train here. [sort integers](https://www.lintcode.com/problem/sort-integers/description)
+- Bucket sort
+
+You can practice [here](https://www.lintcode.com/problem/sort-integers/description)
 ## Selection sort
 ![image](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Selection_sort_animation.gif/250px-Selection_sort_animation.gif)
 We define the list as two parts:
@@ -50,12 +52,15 @@ public class Solution {
     }
 }
 ```
-- Time complexity: O(n^2)
+- Time complexity: $O(n^2)$
 - Space complexity: O(1)
 - unstable
 ## Merge sort
 ![image](https://upload.wikimedia.org/wikipedia/commons/c/cc/Merge-sort-example-300px.gif)
-The core idea is divide and conquer. We divide list to two parts. If we can sort them separately in some way, the problem changes to merge two sorted list, we can use two pointers to do it. The base case is there are only one element in array. we do not need to sort it and just return itself.
+
+The core idea is divide and conquer.
+
+We divide list to two parts. If we can sort them separately in some way, the problem changes to merge two sorted list, we can use two pointers to do it. The base case is there are only one element in array. we do not need to sort it and just return itself.
 ```java
 public class Solution {
     /**
@@ -103,23 +108,32 @@ public class Solution {
     }
 }
 ```
-Question: why we need `int[] temp`?
+Question: 
+- why we need `int[] temp`?
 because we can't finish `merge()` in-place, we should also notice where to new this temp array. If we new it in `mergeSort()`, it will be called many times in the process of recursion.
 
-- stable
-- Time complexity: O(nlogn + n ) => O(nlogn)
-It divide to two parts: divide and merge.
-1. divide: O(1 + 2 + 4 + ... + n/2) = O(n)
-For first level, we need cut 1 time.
-For second level, we neeed cut 2 times.
-For n level, there are n nodes, so we need cut n/2 times.
-2. merge: O(nlogn)
-For every level, there are always n elements remaining to be merged.
+### Algorithm Complexity
 
-- Space complexity: O(n + logn) => O(n)
+#### Time complexity: 
+O(nlogn + n ) => O(nlogn)
+
+It divide to two parts: divide and merge.
+
+- For divide: O(1 + 2 + 4 + ... + n/2) = O(n)
+   - For first level, we need cut 1 time.
+   - For second level, we neeed cut 2 times.
+   - For n level, there are n nodes, so we need cut n/2 times.
+- For merge: O(nlogn)
+   - For every level, there are always n elements remaining to be merged.
+
+#### Space complexity: 
+
+O(n + logn) => O(n)
+
 1. `int[] temp`: O(n)
 2. call stack: O(the height of recursion tree) = O(logn)
 
+- stable
 ## Quicksort
 ![image](https://upload.wikimedia.org/wikipedia/commons/6/6a/Sorting_quicksort_anim.gif)
 There are 2 steps:
@@ -171,14 +185,23 @@ public class Solution {
     }
 }
 ```
-1. why left <= right not left < right?
+Questions:
+
+- why left <= right not left < right?
+
 If `left < right`, at the end of while loop, the left will equal to right, and then we will do quicksort for two intervals `[start, right]` and `[left, end]`. There is an overlap between two intervals. Take [1, 2] as an example, at the end of the code, we should do `quickSort` for [1, 2] again, which means we do not reduce the size of the problem and causes infinite recursion.
-2. why nums[left] < pivot not nums[left] <= pivot?
-Assume the list = [1 1 1 1 1 1], if `nums[left] <= pivot`, the left pointer will move to the end of the list. [1 1 1 1 1 1]
-               r   l
+
+- why nums[left] < pivot not nums[left] <= pivot?
+
+Assume the list = [1 1 1 1 1 1], if `nums[left] <= pivot`, the left pointer will move to the end of the list. 
+```
+[1 1 1 1 1 1]
+         r l
+```
 and we will do `quickSort` for [start, right].
 Also, we do not reduce the size of the problem.
 
+### Algorithm Complexity
 - Worst-case time complexity: O(n^2)
 - average time complexity: O(nlogn)
 - space complexity: O(n), worst case's the height of recursion tree is n.

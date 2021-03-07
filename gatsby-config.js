@@ -28,6 +28,8 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-remark-images`,
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
@@ -70,7 +72,6 @@ module.exports = {
     },
     `gatsby-plugin-i18n-mdx`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     // `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,

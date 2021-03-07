@@ -36,7 +36,7 @@ const P = props => <p style={{
     fontWeight: 400,
     // color:  'hsl(210,38%,95%)',
     color: 'var(--color-text-primary)',
-    marginBottom: '1.25rem'
+    // marginBottom: '1.25rem'
 
 }} {...props} />
 
@@ -55,12 +55,21 @@ const Ul = props => <ul style={{
     padding: '0 1em'
 }} {...props} />
 
-const Img = props => <img {...props} /> 
+const Img = props => <img style={{
+    marginBottom: '1.25rem'
+}} {...props} /> 
+
+const A = props => <a style={{
+    cursor: 'pointer',
+    textDecoration: 'underline',
+    fontWeight: 600,
+}} {...props}/>
 
 const components = {
     h2: H2,
     h3: H3,
     h4: H4,
+    a: A,
     p: P,
     ul: Ul,
     blockquote: Blockquote,
@@ -70,7 +79,7 @@ const components = {
     Highlight,
     StrikeThrough,
     CrossedOff,
-    Img
+    img: Img
 }
 
 export default components

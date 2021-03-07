@@ -25,6 +25,7 @@ There are 3 examples:
 - add special headers (e.g. add `Access-Control-Allow-Origin` to allow CORS)
 
 ## The lifecycle of request
+![Pyramid tween lifecycle](/images/pyramid-tween-and-request-lifecycle.png)
 <Img src="/images/pyramid-tween-and-request-lifecycle.png" width='400px'/>
 
 ## How to write the tween?
@@ -43,3 +44,53 @@ def tween_factory(handler, registry):
 `registry`: the pyramid registry
 
 ## Control the order of tweens
+
+TODO: picture for INGRESS and MAIN, EXCVIEW
+
+you cannot add a tween before INGRESS nor after after MAIN
+
+There are 3 ways to control the order of tweens:
+- add_tween without condition
+- add_tween with condition
+
+### add_tween without condition
+In this way, we only use the `add_tween` function but don't use `over`, and `under` parameters. The order is implicit.
+```python
+def webapp():
+    config.add_tween('tween.factory_a')
+    config.add_tween('tween.factory_b')
+```
+It's like a stack - LIFO (last in, first out). The order of the tweens will be:
+1. INGRESS
+2. tween.factory_b 
+3. tween.factory_a
+4. MAIN
+
+### add_tween with condition
+The `add_tween` has `over` and `under` parameters to control the order.
+```python
+def webapp():
+    config.add_tween('tween.factory_a')
+    config.add_tween(
+        'tween.factory_b',
+        over=pyramid.tweens.MAIN,
+        under='tween.factory_a'
+    )
+```
+`over` means 'before'.
+`under` means 'after'
+
+So the order is:
+1. INGRESS
+2. tween.factory_a 
+3. tween.factory_b
+4. MAIN
+
+### Config file - development.ini
+The order can be defined in config file, and it will ignore any calls of `add_tween()`
+``` ini
+[app:main]
+pyramid.tweens = tween.factory_a
+                 tween.factory_b
+                 pyramid.tweens.excview_tween_factory
+```
