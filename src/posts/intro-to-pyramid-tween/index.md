@@ -21,7 +21,7 @@ If you already know python decorator, tween is similar. It's used to apply a com
 
 There are 3 examples:
 - request validation (e.g. validate request parameters' type)
-- monitoring (e.g. Zipkin integration, timer)
+- monitoring (e.g. Zipkin integration, `timer`)
 - add special headers (e.g. add `Access-Control-Allow-Origin` to allow CORS)
 
 ## The lifecycle of request

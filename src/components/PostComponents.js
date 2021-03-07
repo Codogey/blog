@@ -36,8 +36,7 @@ const P = props => <p style={{
     fontWeight: 400,
     // color:  'hsl(210,38%,95%)',
     color: 'var(--color-text-primary)',
-    // marginBottom: '1.25rem'
-
+    marginBottom: '0.25rem'
 }} {...props} />
 
 const Blockquote = props => <blockquote style={{
@@ -52,7 +51,16 @@ const Blockquote = props => <blockquote style={{
 
 const Ul = props => <ul style={{
     listStyleType: 'disc',
-    padding: '0 1em'
+    padding: '0 2rem'
+}} {...props} />
+
+const Ol = props => <ul style={{
+    listStyleType: 'decimal',
+    padding: '0 2rem'
+}} {...props} />
+
+const Li = props => <li style={{
+    margin: '0.25rem'
 }} {...props} />
 
 const Img = props => <img style={{
@@ -72,6 +80,8 @@ const components = {
     a: A,
     p: P,
     ul: Ul,
+    ol: Ol,
+    li: Li,
     blockquote: Blockquote,
     Underline,
     Box,
