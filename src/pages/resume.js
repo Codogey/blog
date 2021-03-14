@@ -1,6 +1,9 @@
 import React from 'react'
 
 import resumeData from '../resume.yaml'
+import "@fontsource/montserrat"
+import "@fontsource/roboto-slab/600.css"
+import '../css/resume.scss'
 
 const A4Page = ({ children }) => {
     return (
@@ -12,8 +15,7 @@ const A4Page = ({ children }) => {
             height: '12in',
             backgroundColor: 'white',
             boxShadow: '0 3px 8px -3px rgba(0, 0, 0, 0.7)',
-            fontSize: '14px',
-            fontFamily: 'Cambria'
+            fontSize: '14px'
         }}>
             {children}
         </div>
@@ -22,7 +24,10 @@ const A4Page = ({ children }) => {
 
 const Section = ({ title, children }) => (
     <div>
-        <h2 className='font-bold text-lg uppercase border-b-1 border-solid border-black'>{title}</h2>
+        <h2 style={{
+            fontWeight: 400,
+            fontSize: '125%'
+        }} className=' uppercase border-b-1 border-solid border-black'>{title}</h2>
         {children}
     </div>
 
@@ -30,15 +35,20 @@ const Section = ({ title, children }) => (
 
 const ResumeHeader = () => (
     <div>
-        <h1 className="text-center font-bold text-xl">{resumeData.name}</h1>
+        <h1 style={{
+            fontSize: '200%',
+            fontWeight: 600,
+            lineHeight: 1.4
+        }} className="text-center">{resumeData.name}</h1>
         <div className="text-center">
             <span>{resumeData.address} | </span>
             <span>{resumeData.tel} | </span>
             <span>{resumeData.email}</span>
         </div>
         <div className="text-center">
-            <span>{resumeData.github} | </span>
-            <span>{resumeData.linkedin}</span>
+            <a>{resumeData.github} | </a>
+            <a>{resumeData.linkedin} | </a>
+            <a>{resumeData.blog}</a>
         </div>
     </div>
 )
@@ -47,17 +57,23 @@ const Item = ({ title, location, time, desc }) => (
     <div>
         <div className="flex justify-between">
             <div>
-                <h3 className='text-lg font-medium'>{title}</h3>
+                <h3 style={{
+                    fontWeight: 700,
+                    fontSize: '110%'
+                }}>{title}</h3>
                 <span>{location}</span>
             </div>
-            <div>
+            <div style={{
+                fontWeight: 700,
+                fontSize: '110%'
+            }}>
                 <span>{time}</span>
             </div>
         </div>
         <ul className='list-disc pl-8'>
             {
                 desc.map((item, index) => (
-                    <li key={index}>{item}</li>
+                    <li key={index} dangerouslySetInnerHTML={{__html: item}}></li>
                 ))
             }
         </ul>
@@ -74,6 +90,41 @@ const EducationSection = () => {
                 ))
             }
         </Section>
+    )
+}
+
+const SkillSection = () => {
+    const data = resumeData.skills
+    console.log(data)
+    return (
+        <Section title='Skills'>
+            {
+                Object.keys(data).map((key, _) => {
+                    return (
+                        <SkillRow
+                            category={key}
+                            items={data[key]}
+                            key={key}
+                        />
+
+                    )
+                })
+            }
+
+        </Section>
+    )
+}
+
+const SkillRow = ({category, items}) => {
+    return (
+        <div className='flex'>
+            <span style={{
+                fontWeight: 'bold',
+                textTransform: 'capitalize',
+                marginRight: '6px'
+            }}>{ category }: </span>
+            <p>{items.join(', ')}</p>
+        </div>
     )
 }
 
@@ -112,6 +163,7 @@ const Resume = () => {
         <A4Page>
             <ResumeHeader />
             <EducationSection />
+            <SkillSection />
             <WorkExperienceSection />
             <ProjectsSection />
         </A4Page>

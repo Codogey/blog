@@ -4,12 +4,28 @@ tel: 408.406.8721
 email: lixuanqi1995@gmail.com
 github: github.com/LiXuanqi
 linkedin: www.linkedin.com/in/xuanqi-li
+blog: lixuanqi.netlify.app
 
 education:
   - name: Northeastern University
     time: 09/2018 – 12/2019
     desc:
       - M.S. Information Systems, concentrating in Computer Software Engineering, GPA 3.89
+
+skills:
+  languages:
+    - Java
+    - Python
+    - JavaScript
+    - HTML/CSS
+    - Go
+    - Rust
+  tools:
+    - Spark
+    - Flask
+    - React
+    - ElasticSearch
+    - MapReduce
 
 work_experience:
   - position: Software Engineer at Ads Platform
@@ -45,3 +61,9 @@ projects:
       - Design the RESTful API and implemented the token-based authentication feature with Spring Security, JWT.
       - Built a data pipeline using Kafka, Cassandra, Spark, ZooKeeper to analyze and store sensors’ data.
       - Built the image with Docker and Docker compose and deployed at AWS EC2
+  - name: A geo-based Mobile Application with Flutter and Go
+    desc:
+      - Built mobile application with <strong>Flutter</strong>, Dart and the backend with Go, deployed to Google Cloud(GAE flex)
+      - Supported the geo-location based search using ElasticSearch(e.g. nearby post within 100 miles)
+      - Created a data pipeline with BigQuery and Google Dataflow for storing data and offline analytics.
+      - Trained a model for face detection using Tensorflow and Google Cloud ML API
