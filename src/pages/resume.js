@@ -46,9 +46,9 @@ const ResumeHeader = () => (
             <span>{resumeData.email}</span>
         </div>
         <div className="text-center">
-            <a>{resumeData.github} | </a>
-            <a>{resumeData.linkedin} | </a>
-            <a>{resumeData.blog}</a>
+            <a href={'http://' + resumeData.github}>{resumeData.github} | </a>
+            <a href={'http://' + resumeData.linkedin}>{resumeData.linkedin} | </a>
+            <a href={'http://' + resumeData.blog}>{resumeData.blog}</a>
         </div>
     </div>
 )
@@ -79,6 +79,15 @@ const Item = ({ title, location, time, desc }) => (
         </ul>
     </div>
 )
+
+const AboutSection = () => {
+    const data = resumeData.about
+    return (
+        <Section title='About me'>
+            <p>{data}</p>
+        </Section>
+    )
+}
 
 const EducationSection = () => {
     const data = resumeData.education
@@ -135,7 +144,7 @@ const WorkExperienceSection = () => {
         <Section title='Work Experience'>
             {
                 data.map((job, index) => (
-                    <Item title={job.position} time={job.time} location={job.location} desc={job.desc} key={index}/>
+                    <Item title={job.company + ', ' + job.position} time={job.time} location={job.location} desc={job.desc} key={index}/>
                 ))
             }
         </Section>
@@ -162,6 +171,7 @@ const Resume = () => {
     return (
         <A4Page>
             <ResumeHeader />
+            {/* <AboutSection/> */}
             <EducationSection />
             <SkillSection />
             <WorkExperienceSection />
