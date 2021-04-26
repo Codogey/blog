@@ -64,7 +64,8 @@ const Li = props => <li style={{
 }} {...props} />
 
 const Img = props => <img style={{
-    marginBottom: '1.25rem'
+    marginBottom: '1.25rem',
+    backgroundColor: 'white'
 }} {...props} /> 
 
 const A = props => <a style={{

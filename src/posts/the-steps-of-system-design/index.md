@@ -11,10 +11,12 @@ TODO: common ask questions?
 - Are we focusing on the backend only or are we developing the front-end too?
 - we should clarify what parts of the system we will be focusing on.
 
+Functional/Non-functional requirements
+
 ## Step 2: System interface definition
 
 ## Step 3: Back-of-envelope estimation
-what to care? QPS, storage, netword bandwidth. How thess things affect our decisions?
+what to care? traffic, QPS, storage, netword bandwidth. How thess things affect our decisions?
 
 ## Step 4: Defining data model
 SQL vs NoSQL

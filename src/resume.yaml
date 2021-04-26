@@ -63,9 +63,10 @@ work_experience:
       - Migrated daily ad inventory ETL from <strong>MapReduce</strong> to <strong>Spark</strong> and reduced the <strong>75%</strong> runtime and cost. 
       - Led the project to integrate our experimentation platform into Ads team, cooperated with stakeholders across teams, and advocate new tool in Ads team (~50 engineers).
       - <strong>Release engineer</strong> for deploying code across multiple teams
-      - Mentored new hires and helped them onboard smoothly and quickly.
-      - Joined on-call rotation to debug production issues across Ad system.
+      - <strong>Mentored new hires</strong> and helped them onboard smoothly and quickly.
+      - Joined <strong>on-call</strong> rotation to debug production issues across Ad system.
       - Became the on-point who answered any question related to our system in team slack channel.
+      - One of the <strong>instructors of Ads academy</strong> and teached ~ 20 new hires each cohort.
   - position: Software Engineering Intern
     time: 05/2019 – 08/2019
     company: Yelp
