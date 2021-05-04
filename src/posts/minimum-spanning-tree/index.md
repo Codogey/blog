@@ -3,7 +3,7 @@ title: Find the Minimum Spanning Tree (MST)
 date: "2021-04-12T22:12:03.284Z"
 description: ""
 tags: ['Algorithm']
-visible: true
+visible: false
 ---
 
 ## What's Minimum Spanning Tree (MST)?
