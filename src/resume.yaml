@@ -58,6 +58,8 @@ work_experience:
       - Refined existing ad placement infrastructure into a <strong>versatile ad inventory framework</strong> allowing to experiment with interleaving ads between organic emails, which opens huge potential headroom for our team
       - Added support for new <strong>ad click/ external click duration</strong> related metrics, which serves as key user metrics for future launch criterias as well as signals for ads quality modelling
       - Explored/ built new formats like (multi-) bundling in promotion tab in Android/ IOS apps which significantly increased ads metrics like <strong>CTR</strong> and user metrics like <strong>tab visits</strong>, etc
+      - Collaborated with organic Gmail team to work out a new experiment/ launch procedure, streamlining future ads-related launches 
+      - Main reviewer of code changes within our team repository
       - Participated in team SWE oncall rotation, helping debug any production issues across different components
       - Conducted 20+ onsite interviews as citizenship contributions
 
