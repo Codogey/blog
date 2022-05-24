@@ -52,9 +52,9 @@ work_experience:
       company: Snap Inc.
       location: Los Angeles, CA
       desc:
-        - Led the cross-functional efforts to support sound/vibration features and launched globally, boosting more than 2M DAU and engagemen improvement
-        - Core participants(design and early implementation) in migrating old lift-and-shift pull-based notification services to a hybrid system
-        - Implemented and scheduled several dataflow(map-reduce) cron jobs to clean up expired user records per privacy requirement, also helped migrating team key database from Google Datastore to AWS DynamoDB (with built-in TTL)
+        - Led the cross-functional efforts to support sound/vibration features and launched globally, boosting more than <strong>2M DAU</strong> and engagemen improvement
+        - Core participants(<strong>design and early implementation</strong>) in migrating old lift-and-shift pull-based notification services to a hybrid system
+        - Implemented and scheduled several <strong>dataflow</strong>(map-reduce) cron jobs to clean up expired user records per privacy requirement, also helped migrating team key database from Google Datastore to AWS DynamoDB (with built-in TTL)
   - position: Software Engineer at Gmail Ads
     time: 11/2018 – 02/2022
     company: Google
@@ -69,5 +69,5 @@ work_experience:
       - Added support for new <strong>ad click/ external click duration</strong> related metrics, which serves as key user metrics for future launch criterias as well as signals for ads quality modelling
       - Explored/ built new formats like (multi-) bundling in promotion tab in Android/ IOS apps which significantly increased ads metrics like <strong>CTR</strong> and user metrics like <strong>tab visits</strong>, etc
       - Collaborated with organic Gmail team to work out a new experiment/ launch procedure, streamlining future ads-related launches 
-      - Citizenship contributions - Conducted 20+ onsite interviews as citizenship contributions, main reviewer of code changes within team repository and participated in team oncall rotation, helping debug any production issues across different components
+      - Citizenship contributions - Conducted <strong>20+</strong> onsite interviews as citizenship contributions, main reviewer of code changes within team repository and participated in team oncall rotation, helping debug any production issues across different components
 
