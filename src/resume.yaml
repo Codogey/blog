@@ -52,7 +52,7 @@ work_experience:
       company: Snap Inc.
       location: Los Angeles, CA
       desc:
-        - Led the cross-functional efforts to support sound/vibration features and launched globally, boosting more than <strong>2M DAU</strong> and engagemen improvement
+        - Led the cross-functional efforts to support sound/vibration features and launched globally, boosting more than <strong>2M DAU</strong> and engagement improvement
         - Core participants(<strong>design and early implementation</strong>) in migrating old lift-and-shift pull-based notification services to a hybrid system
         - Implemented and scheduled several <strong>dataflow</strong>(map-reduce) cron jobs to clean up expired user records per privacy requirement, also helped migrating team key database from Google Datastore to AWS DynamoDB (with built-in TTL)
   - position: Software Engineer at Gmail Ads
